@@ -1,0 +1,31 @@
+﻿<div class="row" *ngIf="stockProfile">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ stockProfile.name }} ({{ stockProfile.symbol }})</h5>
+            <div class="row">
+                <div *ngIf="!stockQuote" class="col-11">
+                    Quote is loading... ⌛
+                </div>
+                <ng-container *ngIf="stockQuote">
+                    <div class="col-5">
+                        <ul>
+                            <li>Change today: {{ stockQuote.changePercent | number:'1.2-2' }}%</li>
+                            <li>Current price: {{ stockQuote.currentPrice | number:'1.2-2' | currency : stockProfile.currency :'symbol' }}</li>
+                            <li>Opening price: {{ stockQuote.openingPrice | number:'1.2-2' | currency : stockProfile.currency :'symbol' }}</li>
+                            <li>High price: {{ stockQuote.highPrice | number:'1.2-2' | currency : stockProfile.currency :'symbol' }}</li>
+                        </ul>
+                        <p class="updated"><em>Updated: {{ (stockQuote.time*1000) |date:'yyyy-MM-dd HH:mm:ss':'+0000' }} (UTC?)</em></p>
+                    </div>
+                    <div class="arrowContainer col-6">
+                        <change-arrow [changeArrowChange]="stockQuote.changePercent"></change-arrow>
+                    </div>
+                </ng-container>
+                <div class="arrowContainer col-1">
+                    <a (click)="unwatchStock(stockProfile)"><b>X</b></a>
+                </div>
+
+            </div>
+            <a routerLink="sentiment/{{stockProfile.symbol}}" class="btn btn-primary w-50">Go to social sentiment details ></a>
+        </div>
+    </div>
+</div>

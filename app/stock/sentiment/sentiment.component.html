@@ -1,0 +1,27 @@
+﻿<div id="sentiment" class="container">
+    <div *ngIf="this.isLoadingData" class="loading">Data is <b>loading</b>... ⌛</div>
+    <h4>{{stockProfile?.name}} ({{stockProfile?.symbol}})</h4>
+    <div *ngFor="let monthNumberWithSentiment of sentiments;" class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ monthNumberWithSentiment.monthNumber | getMonthName | uppercase }}</h5>
+            <div class="row">
+                <ng-container *ngIf="monthNumberWithSentiment.sentiment">
+                    <div class="col-10">
+                        <ul>
+                            <li>Change: {{monthNumberWithSentiment.sentiment.change }} </li>
+                            <li>MSPR: {{monthNumberWithSentiment.sentiment.mspr | number : '.2-2' }}</li>
+                        </ul>
+                    </div>
+                    <div class="arrowContainer col-1">
+                        <change-arrow [changeArrowChange]="monthNumberWithSentiment.sentiment.change"></change-arrow>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="!monthNumberWithSentiment.sentiment">
+                    <em>Data for {{stockProfile?.symbol}} for {{ monthNumberWithSentiment.monthNumber | getMonthName }} is not available from the API.</em>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <a routerLink="/" class="btn btn-primary w-25">&lt; Back to list of stocks</a>
+</div>

@@ -1,0 +1,3 @@
+﻿<ng-container *ngIf="(changeArrowChange !== undefined) && (changeArrowChange > 0)"><div class="changeArrow positive">🡹</div></ng-container>
+<ng-container *ngIf="(changeArrowChange !== undefined) && (changeArrowChange === 0)"><div class="changeArrow stable"><b>=</b></div></ng-container>
+<ng-container *ngIf="((changeArrowChange !== undefined) && (changeArrowChange < 0))"><div class="changeArrow negative">🡻</div></ng-container>

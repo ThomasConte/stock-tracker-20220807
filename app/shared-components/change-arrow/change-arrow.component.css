@@ -1,0 +1,7 @@
+:host ::ng-deep .changeArrow.positive {
+    color: green;
+}
+
+:host ::ng-deep .changeArrow.negative {
+    color: red;
+}

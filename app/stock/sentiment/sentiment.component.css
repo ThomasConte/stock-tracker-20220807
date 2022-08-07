@@ -1,0 +1,26 @@
+:host ::ng-deep .container {
+    border: solid 1px #808080;
+    padding: 1.2em;
+    font-size: 1.2em;
+    border-radius: 0.75em;
+    margin-top: 1.5em;
+}
+
+:host ::ng-deep .changeArrow.positive {
+    color: green;
+}
+
+:host ::ng-deep .changeArrow.negative {
+    color: red;
+}
+
+.card {
+    width: 30%;
+    display: inline-block;
+    margin: 2em 1em;
+    height: 7em;
+}
+
+.loading{
+    margin: 2em;
+}

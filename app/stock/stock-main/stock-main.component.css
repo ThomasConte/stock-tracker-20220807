@@ -1,0 +1,15 @@
+:host ::ng-deep .container {
+    border: solid 1px #808080;
+    padding: 1.7em;
+    font-size: 1.2em;
+    border-radius: 0.75em;
+    margin-bottom: 1.5em;
+}
+
+:host ::ng-deep .changeArrow.positive {
+    color: green;
+}
+
+:host ::ng-deep .changeArrow.negative {
+    color: red;
+}

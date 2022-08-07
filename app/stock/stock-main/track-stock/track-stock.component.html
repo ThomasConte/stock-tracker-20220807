@@ -1,0 +1,9 @@
+<div id="trackStock" class="container">
+    <p>Enter the symbol of a stock to track (i.e. AAPL, TSLA, GOOGL)</p>
+    <form #watchStockForm="ngForm" [formGroup]="watchStockFormGroup" (ngSubmit)="onSubmit()">
+        <div class="input-group w-25">
+            <input #symbol class="form-control" type="text" maxlength="5" size="5" formControlName="symbol" oninput="this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '')" />
+            <button [disabled]="watchStockFormGroup.invalid" class="btn btn-outline-primary" type="submit" id="button-trackStock">Track Stock</button>
+        </div>
+    </form>
+</div>

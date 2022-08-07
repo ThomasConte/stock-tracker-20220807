@@ -1,0 +1,17 @@
+.arrowContainer {
+    text-align: left;
+    vertical-align: central;
+    font-size: xx-large;
+}
+
+.card {
+    width: 60%;
+    margin: auto;
+    display: inline;
+    margin-top:1em;
+}
+
+.updated {
+    color: grey;
+    font-size: small;
+}
