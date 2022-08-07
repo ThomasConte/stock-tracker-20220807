@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StockProfile } from '../../models/stockProfile';
 import { StockService } from '../../stock.service';
 
 @Component({
@@ -14,5 +15,9 @@ export class StockDataComponent implements OnInit {
     }
 
     ngOnInit(): void { }
+
+    stockProfileTrackBy(index: number, stockProfile: StockProfile) {
+        return stockProfile.symbol;
+    }
 
 }

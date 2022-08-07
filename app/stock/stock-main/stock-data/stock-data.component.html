@@ -1,6 +1,6 @@
 ﻿<div id="stockData" class="container">
     <div id="noStocks" class="card" *ngIf="stockService.watchedStocks.stockCollection.length === 0"><em>No stocks are currently watched. Enter stock symbols in the field above to watch stocks.</em></div>
-    <stock-data-tracker *ngFor="let stockProfile of stockService.watchedStocks.stockCollection" [stockProfile]="stockProfile"></stock-data-tracker>
+    <stock-data-tracker *ngFor="let stockProfile of stockService.watchedStocks.stockCollection; trackBy: stockProfileTrackBy;" [stockProfile]="stockProfile"></stock-data-tracker>
     <div class="row" *ngIf="stockService.isLoadingDataToTrackExtraSobks">
         <div class="loading">Data is <b>loading</b>... ⌛</div>
     </div>
